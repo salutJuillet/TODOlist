@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Home0420 from './comp/Home0420';
+import Footer from './comp/Footer';
+import Write from './comp/Write';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import todo from './data/data'
 
-function App() {
+function App() {  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Home0420 todo={todo} />
+        {/* <Write /> */}
+        <Footer />
+
+      <Routes>
+        <Route path="/write/*" element={<Write />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
