@@ -12,9 +12,9 @@ import todo from './data/data'
 function App() {  
   return (
     <BrowserRouter>
-        {/* <Home0420 todo={todo} /> */}
+        <Home0420 todo={todo} />
         {/* <Write /> */}
-        <Post />
+        {/* <Post /> */}
         <Footer />
 
       <Routes>
