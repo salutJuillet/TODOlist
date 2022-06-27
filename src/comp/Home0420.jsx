@@ -1,11 +1,39 @@
 import React, { useEffect } from 'react'
 import './home.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { MdArrowLeft, MdArrowRight } from 'react-icons/md';
 import { BsPlus, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { HiPencil } from 'react-icons/hi';
 
-export default function Home(props) {
+export default function Home() {
+    let todoList = [];
+    
+    useEffect(() => {
+        axios.get('./data/data.json')
+        .then(response => {
+            const list = [response.data];
+            console.log(list[0]);
+            // todoList = list[0][0].map(li => {
+            //     return(
+            //         <li key={li.id}>
+            //             <input type="checkbox" /> 
+            //             <span className="linkBox">
+            //                 <a href="#">{li.body}</a>
+            //                 {
+            //                     (li.body="") ? <Link to="/write">{li.body}</Link> : (<span><Link to="/">Home</Link></span>)
+            //                 }
+            //                 <span className="editBtn"><a href="#"><HiPencil /></a></span>
+            //             </span>
+            //         </li>
+            //     )
+            // });
+            // console.log(todoList);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    })
 
     // const todoList = [];
     // console.log(props.todo[0].apr20);
@@ -38,7 +66,7 @@ export default function Home(props) {
 
             {/* 투두 리스트 */}
             <ul className="todo">
-                {/* {todoList} */}
+                {todoList}
             </ul>
 
             <p className="bottomText">Every day, good day!</p>
