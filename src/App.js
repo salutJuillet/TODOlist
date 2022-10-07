@@ -8,11 +8,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {  
   return (
     <BrowserRouter>
-        <Home0420 />
-        {/* <Write /> */}
-        {/* <Post /> */}
-        <Footer />
-
       <Routes>
         <Route index element={<Home0420 />} />
         <Route path="/post/:id" element={<Post />} />
