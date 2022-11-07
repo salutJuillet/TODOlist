@@ -9,8 +9,8 @@
 
 <div align="center">
   <img src="public/images/preview01.png" width="900px"/>
-  <img src="public/images/preview02.png" width="900px"/> <br/>
-  <a href="" target="_blank"></a>
+  <img src="public/images/preview02.png" width="900px"/>
+  <!-- <a href="" target="_blank"></a> -->
 </div> <br/><br/>
 
 <br/><br/>
