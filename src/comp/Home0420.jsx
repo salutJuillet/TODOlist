@@ -6,26 +6,62 @@ import { MdArrowLeft, MdArrowRight } from 'react-icons/md';
 import { BsPlus, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { HiPencil } from 'react-icons/hi';
 
+const LIST = [
+    {"id":1, "body":"오전 강의 듣기 (수리물리학/글쓰기)"},
+    {"id":2, "body":"책상 정리하기"},
+    {"id":3, "body":"점심 -토마토 파스타"},
+    {"id":4, "body":"오후 강의 듣기 (전자기학)"},
+    {"id":5, "body":"오늘치 강의 태블릿에 정리하기"},
+    {"id":6, "body":"운동하기 -링피트 000일 차!"},
+    {"id":7, "body":"저녁 -김치전"},
+    {"id":8, "body":"RealClass -Peanuts 16일 차 듣기"},
+    {"id":9, "body":"빨래 개기"},
+    {"id":10, "body":""},
+    {"id":11, "body":""},
+    {"id":12, "body":""},
+    {"id":13, "body":""},
+    {"id":14, "body":""},
+    {"id":15, "body":""},
+    {"id":16, "body":""}
+  ]
+
 export default function Home() {
-    let todoList = [];
+    let todoList = LIST.map(li => {
+        return(
+            <li key={li.id}>
+                <input type="checkbox" /> 
+                <span className="linkBox">
+                    <Link to={'/post/' + li.id}>{li.body}</Link> 
+
+                    <span className="editBtn">
+                        {
+                            li.body !== ""
+                            ? <Link to={'/post/' + li.id}><HiPencil /></Link>
+                            : <Link to="/write"><HiPencil /></Link>
+                        }
+                    </span>
+                </span>
+            </li>
+        )
+    });
     
     useEffect(() => {
         axios.get('./data/data.json')
         .then(response => {
             const list = [response.data];
-            console.log(list[0]);
+            // console.log(list[0]);
             // todoList = list[0][0].map(li => {
             //     return(
-            //         <li key={li.id}>
-            //             <input type="checkbox" /> 
-            //             <span className="linkBox">
-            //                 <a href="#">{li.body}</a>
-            //                 {
-            //                     (li.body="") ? <Link to="/write">{li.body}</Link> : (<span><Link to="/">Home</Link></span>)
-            //                 }
-            //                 <span className="editBtn"><a href="#"><HiPencil /></a></span>
-            //             </span>
-            //         </li>
+                    // <li key={li.id}>
+                    //     <input type="checkbox" /> 
+                    //     <span className="linkBox">
+                    //         <a href="#">{li.body}</a>
+                    //         {
+                    //             (li.body="") ? <Link to="/write">{li.body}</Link> : (<span><Link to="/">Home</Link></span>)
+                    //         }
+                    //         <span className="editBtn"><a href="#"><HiPencil /></a></span>
+                    //     </span>
+                    // </li>
             //     )
             // });
             // console.log(todoList);

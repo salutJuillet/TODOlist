@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route index element={<Home0420 />} />
         <Route path="/post/:id" element={<Post />} />
-        <Route path="/write/*" element={<Write />} />
+        <Route path="/write" element={<Write />} />
       </Routes>
     </BrowserRouter>
   );
